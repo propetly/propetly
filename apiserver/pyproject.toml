@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "apiserver"
+package-mode = false
+
+[tool.black]
+line-length = 79
+target-version = ['py39']
+include = '\.pyi?$'
+
+
+[tool.poetry.dependencies]
+python = "^3.12"
+django = "^5.1.1"
+psycopg2-binary = "^2.9.9"
+djangorestframework = "^3.15.2"
+django-cors-headers = "^4.4.0"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.4.2"
