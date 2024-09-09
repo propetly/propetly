@@ -18,3 +18,4 @@ django-cors-headers = "^4.4.0"
 
 [tool.poetry.group.dev.dependencies]
 black = "^24.4.2"
+django-seed = "^0.3.1"

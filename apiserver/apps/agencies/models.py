@@ -1,5 +1,4 @@
 from django.db import models
-from datetime import datetime
 
 
 # Create your models here.
@@ -34,19 +33,20 @@ class Agency(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     @property
-    def get_full_name(self) -> str:
+    def full_name(self) -> str:
         return " ".join(
-            list(
-                filter(
-                    lambda x: x is not None,
-                    [
-                        self.director_last_name,
-                        self.director_first_name,
-                        self.director_middle_name,
-                    ],
-                )
+            filter(
+                None,
+                [
+                    self.director_last_name,
+                    self.director_first_name,
+                    self.director_middle_name,
+                ],
             )
         )
 
     def __str__(self):
-        return f"{self.name} <{self.get_full_name}>"
+        return f"{self.name} <{self.full_name}>"
+
+    class Meta:
+        db_table = "agencies"
